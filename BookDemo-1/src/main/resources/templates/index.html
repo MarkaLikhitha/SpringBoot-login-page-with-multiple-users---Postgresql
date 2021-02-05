@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Manager</title>
+</head>
+<body>
+	<div align="center">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Logout" />
+		</form>
+
+		<h1>Book Manager</h1>
+		<div sec:authorize="hasAnyAuthority( 'ADMIN')">
+			<a href="saveBook">Create New Book</a>
+		</div>
+
+		<br /> <br />
+		<table border="1" cellpadding="30">
+			<thead>
+				<tr>
+					<th>Book ID</th>
+					<th>Author</th>
+					<th>Year</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="book : ${listBooks}">
+					<td th:text="${book.id}">Book ID</td>
+					<td th:text="${book.author}">Author</td>
+					<td th:text="${book.year}">Year</td>
+
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

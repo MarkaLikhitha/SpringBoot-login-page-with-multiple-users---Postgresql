@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "spring.jps.hiberate.ddl-auto",
+  "type": "java.lang.String",
+  "description": "A description for 'spring.jps.hiberate.ddl-auto'"
+}]}
